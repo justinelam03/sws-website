@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Woman Securities | The University of Chicago</title>
+<meta name="description" content="Smart Woman Securities at the University of Chicago">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Smart Woman Securities, home"><img src="images/logo-header.png" alt="Smart Woman Securities"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <ul id="menu">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="programs.html">Programs and Events</a></li>
+      <li><a href="leadership.html">Leadership Team</a></li>
+      <li><a href="recruitment.html">Recruitment</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+
+<section class="photo hero" aria-label="Smart Woman Securities">
+  <div class="bg" data-parallax style="background-image:url(images/hero.jpg)"></div>
+  <div class="veil"></div>
+  <div class="wrap">
+    <h1 class="enter">Smart Woman Securities</h1>
+    <p class="enter">The University of Chicago</p>
+    <div class="rule"></div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<section class="mission" id="mission">
+  <div class="wrap grid">
+    <h2>Our Mission</h2>
+    <p>Smart Woman Securities at the University of Chicago aims to empower undergraduate women of all academic backgrounds and all career interests with investment knowledge. Founded in 2012, we are a member of the SWS national organization with 25 chapters across the US. Through instructive seminars, mentoring initiatives, and meetings with successful investors such as Warren Buffett, SWS provides resources upon which women can build greater knowledge of financial markets. By giving young women direct investment experience while still in college, SWS aims to empower a new generation of women investors for the future.</p>
+  </div>
+</section>
+
+<section class="photo heavy alumnae" id="alumnae">
+  <div class="bg soft" data-parallax style="background-image:url(images/hero.jpg);background-position:center 70%"></div>
+  <div class="veil"></div>
+  <div class="wrap center">
+    <h2>Alumnae</h2>
+    <p class="sub">Our members have gone on to pursue internships and careers at a number of prestigious firms:</p>
+  </div>
+  <div class="marquee" aria-label="Firms where our alumnae have worked"><div class="m-track" id="rowA"></div></div>
+  <div class="marquee rev" aria-hidden="true"><div class="m-track" id="rowB"></div></div>
+</section>
+
+<section class="sponsors center" id="sponsors">
+  <div class="wrap">
+    <h2 style="color:var(--plum-700)">Sponsors and Partners</h2>
+    <p class="sub">SWS is a non-profit organization with 501(c)(3) status. We rely on donations and sponsorship to help educate the young undergraduate women who benefit from our educational programs and career support.</p>
+    <div class="sp-grid" id="spGrid"></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="images/logo-mark-light.png" alt="Smart Woman Securities">
+        <div>The University of Chicago</div>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs and Events</a></li>
+        <li><a href="leadership.html">Leadership Team</a></li>
+        <li><a href="recruitment.html">Recruitment</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <ul>
+        <li><a data-email></a></li>
+        <li><a href="#" data-instagram>Instagram</a></li>
+        <li><a href="#" data-facebook>Facebook</a></li>
+      </ul>
+    </div>
+    <div class="fine">&copy; <span id="yr"></span> Smart Woman Securities, The University of Chicago</div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+/* ==========================================================
+   EDIT: alumnae firms and sponsors.
+   t = typeset logo style, sub = optional small second line.
+   To use an official logo instead, save it in the "logos" folder named after
+   the firm in lowercase with dashes (logos/goldman-sachs.svg) and it replaces
+   the typeset version automatically.
+   ========================================================== */
+const ALUMNAE = [
+  {name:"Goldman Sachs", t:"title"},
+  {name:"UBS", t:"serif"},
+  {name:"J.P. Morgan", t:"title", label:"J.P.Morgan"},
+  {name:"Bain & Company", t:"light", label:"Bain &amp; Company"},
+  {name:"Lazard", t:"wide"},
+  {name:"BofA Securities", t:"bold", label:"BofA", sub:"Securities"},
+  {name:"BlackRock", t:"bold"},
+  {name:"Barclays", t:"caps"},
+  {name:"Deutsche Bank", t:"bold"},
+  {name:"Jefferies", t:"bold"},
+  {name:"Société Générale", t:"caps", label:"Société<br>Générale"},
+  {name:"BNP Paribas", t:"caps"},
+  {name:"Citi", t:"big"},
+  {name:"Rothschild & Co", t:"title", label:"Rothschild &amp; Co"},
+  {name:"Vista Equity Partners", t:"wide", label:"Vista", sub:"Equity Partners"},
+  {name:"Moelis", t:"wide"},
+  {name:"Centerview Partners", t:"serif", label:"Centerview", sub:"Partners"},
+  {name:"Blackstone", t:"title"}
+];
+const SPONSORS = [
+  {name:"Charles Schwab", t:"script", label:"charles", sub:"Schwab"},
+  {name:"Mizuho", t:"caps"},
+  {name:"UChicago Student Government", t:"serif", label:"UChicago<br>Student Government"},
+  {name:"Chicago Financial Women", t:"serif", label:"Chicago<br>Financial Women"}
+];
+const half = Math.ceil(ALUMNAE.length/2);
+const A = ALUMNAE.slice(0,half), B = ALUMNAE.slice(half);
+// each row is doubled so the scroll loops seamlessly
+buildLogos(document.getElementById("rowA"), [...A,...A], "logo-tile");
+buildLogos(document.getElementById("rowB"), [...B,...B], "logo-tile");
+buildLogos(document.getElementById("spGrid"), SPONSORS, "sp");
+</script>
+</body>
+</html>

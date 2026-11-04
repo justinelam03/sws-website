@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Team | Smart Woman Securities UChicago</title>
+<meta name="description" content="Smart Woman Securities at the University of Chicago">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Smart Woman Securities, home"><img src="images/logo-header.png" alt="Smart Woman Securities"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="programs.html">Programs and Events</a></li>
+      <li><a href="leadership.html" aria-current="page">Leadership Team</a></li>
+      <li><a href="recruitment.html">Recruitment</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+
+<section class="photo page-head">
+  <div class="bg soft" data-parallax style="background-image:url(images/g04.jpg)"></div>
+  <div class="veil"></div>
+  <div class="wrap"><h1>Leadership Team</h1></div>
+</section>
+<section>
+  <div class="wrap"><div class="board-grid" id="boardGrid"></div></div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="images/logo-mark-light.png" alt="Smart Woman Securities">
+        <div>The University of Chicago</div>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programs.html">Programs and Events</a></li>
+        <li><a href="leadership.html">Leadership Team</a></li>
+        <li><a href="recruitment.html">Recruitment</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <ul>
+        <li><a data-email></a></li>
+        <li><a href="#" data-instagram>Instagram</a></li>
+        <li><a href="#" data-facebook>Facebook</a></li>
+      </ul>
+    </div>
+    <div class="fine">&copy; <span id="yr"></span> Smart Woman Securities, The University of Chicago</div>
+  </div>
+</footer>
+<script>
+/* ==========================================================
+   EDIT: board members. Add, remove, or reorder freely.
+   photo: "images/jane.jpg" (or leave "" to show initials)
+   bio and linkedin are optional; leave "" to hide them.
+   ========================================================== */
+const BOARD = [
+  { name:"Kelly Liu",         role:"President",              bio:"", photo:"images/kelly-liu.jpg",        linkedin:"" },
+  { name:"Katherine Chen",    role:"Director of Education",  bio:"", photo:"images/katherine-chen.jpg",   linkedin:"" },
+  { name:"Aina Matsumoto",    role:"Director of Outreach",   bio:"", photo:"images/aina-matsumoto.jpg",   linkedin:"" },
+  { name:"Victoria Huynh",    role:"Director of Outreach",   bio:"", photo:"images/victoria-huynh.jpg",   linkedin:"" }
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ini = n => n.split(/\s+/).map(w => w[0]).slice(0,2).join("").toUpperCase();
+document.getElementById("boardGrid").innerHTML = BOARD.map(m => `
+  <div class="member" tabindex="0" role="button" aria-label="${esc(m.name)}, ${esc(m.role)}">
+    <div class="ph">${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}">` : `<span class="mono">${esc(ini(m.name))}</span>`}</div>
+    <div class="label"><b>${esc(m.name)}</b><span>${esc(m.role)}</span></div>
+    <div class="bio"><b>${esc(m.name)}</b><span class="role">${esc(m.role)}</span>
+      ${m.bio ? `<p>${esc(m.bio)}</p>` : ""}
+      ${m.linkedin ? `<a href="${esc(m.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>` : ""}
+    </div>
+  </div>`).join("");
+</script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
