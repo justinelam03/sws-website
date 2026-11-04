@@ -28,7 +28,7 @@
 <main>
 
 <section class="photo page-head">
-  <div class="bg soft" data-parallax style="background-image:url(images/g05.jpg)"></div>
+  <div class="bg" data-parallax style="background-image:url(images/event-audience.jpg)"></div>
   <div class="veil"></div>
   <div class="wrap"><h1>Our Programs</h1><p class="sub">There are many ways to get involved with SWS!</p></div>
 </section>
@@ -56,6 +56,10 @@
       <p>Every year, SWS hosts Women in Finance, the largest finance networking event for UChicago women. We also hold company site visits to Chicago-based firms and host sponsored stock pitch competitions with said firms. Companies we have partnered with include PEAK6 Investments, Rothschild &amp; Co, and Greenhill &amp; Co.</p></article></div>
   </div>
   <div class="track-bar"><i id="trackBar"></i></div>
+</section>
+
+<section class="photo-strip" aria-label="Photos from SWS events">
+  <div class="marquee ps"><div class="m-track" id="photoTrack"></div></div>
 </section>
 
 <section class="events" id="events">
@@ -117,6 +121,30 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
-
+<script>
+/* ==========================================================
+   EDIT: the rotating photo stripe on this page.
+   Add a photo by saving it in the "images" folder and adding its path below,
+   e.g. "images/my-photo.jpg". An empty "" shows the SWS logo placeholder.
+   Landscape photos (wider than tall) look best.
+   ========================================================== */
+const STRIP = [
+  "images/event-panel.jpg",
+  "",
+  "images/event-audience.jpg",
+  "",
+  "",
+  ""
+];
+(function(){
+  const tile = src => src
+    ? `<div class="ps-tile"><img src="${src}" alt="SWS event photo"></div>`
+    : `<div class="ps-tile ph"><img src="images/logo-mark-light.png" alt="Smart Woman Securities"></div>`;
+  // repeat the set so the loop is long enough for wide screens, then double it for a seamless scroll
+  const reps = Math.max(1, Math.ceil(2800 / (STRIP.length * 400)));
+  const half = Array.from({length: reps}, () => STRIP).flat();
+  document.getElementById("photoTrack").innerHTML = [...half, ...half].map(tile).join("");
+})();
+</script>
 </body>
 </html>
