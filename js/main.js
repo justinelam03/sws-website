@@ -16,6 +16,7 @@ const SITE = {
   $$("[data-email]").forEach(a => { a.href = "mailto:" + SITE.email; if(!a.children.length && !a.dataset.keep) a.textContent = SITE.email; });
   $$("[data-instagram]").forEach(a => { a.href = SITE.instagram; a.target = "_blank"; a.rel = "noopener"; });
   $$("[data-facebook]").forEach(a => { a.href = SITE.facebook; a.target = "_blank"; a.rel = "noopener"; });
+  $$("[data-addr]").forEach(e => e.textContent = SITE.email);
   const yr = $("#yr"); if(yr) yr.textContent = new Date().getFullYear();
 
   // Nav + progress + parallax
@@ -28,6 +29,12 @@ const SITE = {
       const r = el.parentElement.getBoundingClientRect();
       if(r.bottom < -100 || r.top > innerHeight + 100) return;
       el.style.transform = `translateY(${(-r.top * 0.14).toFixed(1)}px)`;
+    });
+    $$(".ph-img").forEach(box => {
+      const r = box.getBoundingClientRect();
+      if(r.bottom < -100 || r.top > innerHeight + 100 || reduce) return;
+      const mid = (r.top + r.height/2 - innerHeight/2);
+      box.firstElementChild.style.transform = `translateY(${(mid * parseFloat(box.dataset.pspeed||0)).toFixed(1)}px) scale(1.14)`;
     });
     visitsUpdate();
   }
